@@ -3,7 +3,7 @@
 /****************** PRINT POINTER ******************/
 /**
  * print_pointer - Prints the value of a pointer variable
- * @types: List a of arguments
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -77,14 +77,14 @@ int print_non_printable(va_list types, char buffer[],
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 
-	while (str[i] != '\0')
+	while (str[i])
 	{
 		if (is_printable(str[i]))
 			buffer[i + offset] = str[i];
 		else
 			offset += append_hexa_code(str[i], buffer, i + offset);
 
-		i++;
+		++i;
 	}
 
 	buffer[i + offset] = '\0';
@@ -95,7 +95,7 @@ int print_non_printable(va_list types, char buffer[],
 /************************* PRINT REVERSE *************************/
 /**
  * print_reverse - Prints reverse string.
- * @types: Lista of arguments
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -123,10 +123,10 @@ int print_reverse(va_list types, char buffer[],
 
 		str = ")Null(";
 	}
-	for (i = 0; str[i]; i++)
+	for (i = 0; str[i]; ++i)
 		;
 
-	for (i = i - 1; i >= 0; i--)
+	for (i = i - 1; i >= 0; --i)
 	{
 		char z = str[i];
 
@@ -138,7 +138,7 @@ int print_reverse(va_list types, char buffer[],
 /************************* PRINT A STRING IN ROT13 *************************/
 /**
  * print_rot13string - Print a string in rot13.
- * @types: Lista of arguments
+ * @types: List of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
  * @width: get width
@@ -165,9 +165,9 @@ int print_rot13string(va_list types, char buffer[],
 
 	if (str == NULL)
 		str = "(AHYY)";
-	for (i = 0; str[i]; i++)
+	for (i = 0; str[i]; ++i)
 	{
-		for (j = 0; in[j]; j++)
+		for (j = 0; in[j]; ++j)
 		{
 			if (in[j] == str[i])
 			{
