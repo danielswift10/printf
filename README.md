@@ -37,7 +37,7 @@
 ## Project Requirements
 * All files will be compiled on Ubuntu 14.04 LTS
 * Programs and functions will be compiled with gcc 4.8.4 using flags -Wall -Werror -Wextra and -pedantic
-* Code must follow the [Betty] style
+* Code must follow all the [Betty] style
 * Global variables are not allowed
 * Authorized functions and macros:
   * ```write``` (man 2 write)
